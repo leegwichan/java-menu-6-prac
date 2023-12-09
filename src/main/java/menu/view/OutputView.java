@@ -16,6 +16,9 @@ public class OutputView {
     private static final List<String> DAY_OF_WEEK = List.of("월요일", "화요일", "수요일", "목요일", "금요일");
     private static final String PREFIX_CATEGORY = "카테고리";
 
+    private static final String TABLE_PREFIX = "[ ";
+    private static final String TABLE_DELIMITER = " | ";
+    private static final String TABLE_SUFFIX = " ]";
     private static final String ERROR_PREFIX = "[ERROR] ";
 
     public void printStartTitle() {
@@ -39,7 +42,7 @@ public class OutputView {
 
     private void printByTableRowFormat(String prefix, List<String> contents) {
         String message = Stream.concat(Stream.of(prefix), contents.stream())
-                .collect(Collectors.joining(" | ", "[ ", " }"));
+                .collect(Collectors.joining(TABLE_DELIMITER, TABLE_PREFIX, TABLE_SUFFIX));
         println(message);
     }
 
