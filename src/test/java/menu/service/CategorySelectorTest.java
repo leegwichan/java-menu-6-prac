@@ -8,12 +8,11 @@ import menu.util.RandomGenerator;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.BeforeEach;
 import menu.model.Category;
-import menu.util.FakeGenerator;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-import static menu.constant.constant.DAYS_SIZE;
+import static menu.constant.Constant.DAYS_SIZE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CategorySelectorTest {

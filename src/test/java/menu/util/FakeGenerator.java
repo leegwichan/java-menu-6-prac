@@ -1,8 +1,5 @@
 package menu.util;
 
-import static menu.constant.constant.DAYS_SIZE;
-
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class FakeGenerator implements Generatable {
@@ -13,6 +10,7 @@ public class FakeGenerator implements Generatable {
         this.fakeNumber = fakeNumber;
         this.fakeElementIndex = fakeElementIndex;
     }
+
     @Override
     public int getRandomNumber() {
         return fakeNumber;

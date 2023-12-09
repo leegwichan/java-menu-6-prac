@@ -1,6 +1,6 @@
 package menu.util;
 
-import static menu.constant.constant.DAYS_SIZE;
+import static menu.constant.Constant.DAYS_SIZE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;

@@ -1,6 +1,6 @@
 package menu.service;
 
-import static menu.constant.constant.DAYS_SIZE;
+import static menu.constant.Constant.DAYS_SIZE;
 
 import java.util.ArrayList;
 import java.util.List;
