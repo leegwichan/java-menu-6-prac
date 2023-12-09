@@ -34,7 +34,7 @@
   - 1이면 일식, 2면 한식, 3이면 중식, 4면 아시안, 5면 양식
   - `Randoms.pickNumberInRange(1, 5)`를 이용
 
-### RandomMenuGenerator
+### RandomMenuSelector
 - 메뉴 List를 입력받아 Random한 메뉴를 제공
 - `Randoms.shuffle(menus).get(0)`룰 이용
 
