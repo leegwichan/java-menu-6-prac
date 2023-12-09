@@ -8,7 +8,7 @@ public class RandomMenuSelector {
     private RandomMenuSelector() {
     }
 
-    public String select(List<String> menus) {
+    public static String select(List<String> menus) {
         return Randoms.shuffle(menus).get(0);
     }
 }

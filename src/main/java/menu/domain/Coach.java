@@ -1,5 +1,6 @@
 package menu.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Coach {
@@ -10,6 +11,7 @@ public class Coach {
 
     private final String name;
     private final List<String> inedibleMenus;
+    private final List<String> recommendedMenus = new ArrayList<>();
 
     public Coach(String name, List<String> inedibleMenus) {
         validateName(name);
@@ -39,5 +41,30 @@ public class Coach {
 
     private static boolean isOverThanMaxSize(List<String> inedibleMenus) {
         return inedibleMenus.size() > MAX_INEDIBLE_MENU_COUNT;
+    }
+
+    public void addRecommendMenuBy(Category category) {
+        String newMenu;
+        do {
+            newMenu = getRandomMenu(category);
+        } while (isViolateRecommendCondition(newMenu));
+
+        recommendedMenus.add(newMenu);
+    }
+
+    private String getRandomMenu(Category category) {
+        return RandomMenuSelector.select(category.getMenus());
+    }
+
+    private boolean isViolateRecommendCondition(String newMenu) {
+        return isInedible(newMenu) ||  isAlreadyRecommend(newMenu);
+    }
+
+    private boolean isInedible(String newMenu) {
+        return inedibleMenus.contains(newMenu);
+    }
+
+    private boolean isAlreadyRecommend(String newMenu) {
+        return recommendedMenus.contains(newMenu);
     }
 }
