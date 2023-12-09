@@ -8,12 +8,18 @@ import java.util.stream.Collectors;
 public class InputView {
 
     private static final String REQUEST_COACH_NAMES = "코치의 이름을 입력해 주세요. (, 로 구분)";
+    private static final String REQUEST_INEDIBLE_MENU_FORMAT = "%s(이)가 못 먹는 메뉴를 입력해 주세요.";
 
     private static final String STRING_DELIMITER = ",";
     private static final int DELIMITER_LIMIT = -1;
 
     public List<String> inputCoachNames() {
         printRequestMessage(REQUEST_COACH_NAMES);
+        return readStrings();
+    }
+
+    public List<String> inputInedibleMenu(String name) {
+        printRequestMessage(REQUEST_INEDIBLE_MENU_FORMAT.formatted(name));
         return readStrings();
     }
 
