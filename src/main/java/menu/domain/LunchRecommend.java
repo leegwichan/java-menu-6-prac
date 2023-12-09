@@ -62,8 +62,8 @@ public class LunchRecommend {
 
     private boolean isViolateRecommendRule(List<Category> categories, Category newCategory) {
         return categories.stream()
-                .filter(category -> category == newCategory)
-                .count() > MAX_COUNT_OF_OVERLAPPED_CATEGORY;
+                .filter(category -> category.equals(newCategory))
+                .count() >= MAX_COUNT_OF_OVERLAPPED_CATEGORY;
 
     }
 }
