@@ -1,10 +1,13 @@
 package menu.service;
 
+import static menu.model.MenuData.isMenuInCategory;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import menu.exception.MenuRecommendationException;
 import menu.model.Category;
 import menu.model.MenuData;
 import menu.util.Generatable;
@@ -34,14 +37,26 @@ public class MenuSelector {
 
     private Menus selectMenuByCoach(Coach coach, List<Category> categories) {
         List<String> menus = new ArrayList<>();
-        for (Category category: categories) {
-            String menu = generator.getRandomElementOf(MenuData.getMenusByCategory(category));
-            if (isInValidMenuForCoach(coach, menus, menu)) {
-                continue;
+        for (Category category : categories) {
+            String selectedMenu = selectMenuForCategory(coach, menus, category);
+            if (!isMenuInCategory(selectedMenu, category)) {
+                throw new MenuRecommendationException("카테고리 오류");
             }
-            menus.add(menu);
+            menus.add(selectedMenu);
         }
         return new Menus(menus);
+    }
+
+    private String selectMenuForCategory(Coach coach, List<String> selectedMenus, Category category) {
+        List<String> menus = MenuData.getMenusByCategory(category);
+        System.out.println(category.getKrName());
+        System.out.println(menus);
+        String menuString;
+        do {
+            menuString = Randoms.shuffle(menus).get(0);
+        } while (isInValidMenuForCoach(coach, selectedMenus, menuString));
+        System.out.println(menuString);
+        return menuString;
     }
 
     private boolean isInValidMenuForCoach(Coach coach, List<String> menus, String menu) {

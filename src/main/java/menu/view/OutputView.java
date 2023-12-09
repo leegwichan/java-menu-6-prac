@@ -25,6 +25,7 @@ public class OutputView {
     }
 
     private void printResultStartMessage() {
+        System.out.println();
         System.out.println("메뉴 추천 결과입니다.");
     }
 
@@ -44,5 +45,9 @@ public class OutputView {
     private static void printFormattedList(List<String> list, String label) {
         String combined = String.join(" | ", list);
         System.out.printf("[ %s | %s ]%n", label, combined);
+    }
+
+    public void printErrorMessage(Exception e) {
+        System.out.println(e.getMessage());
     }
 }

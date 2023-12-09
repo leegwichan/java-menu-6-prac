@@ -43,4 +43,9 @@ public class MenuData {
                 .flatMap(List::stream)
                 .anyMatch(menu::equals);
     }
+
+    public static boolean isMenuInCategory(String menu, Category category) {
+        List<String> menusInCategory = getMenusByCategory(category);
+        return menusInCategory.contains(menu);
+    }
 }
