@@ -23,8 +23,10 @@ public class MultiRecommendResult {
         return new MultiRecommendResult(categories, results);
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public List<String> getCategories() {
+        return categories.stream()
+                .map(Category::getName)
+                .collect(Collectors.toList());
     }
 
     public List<SingleRecommendResult> getResults() {
