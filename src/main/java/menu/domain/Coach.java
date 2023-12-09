@@ -1,0 +1,43 @@
+package menu.domain;
+
+import java.util.List;
+
+public class Coach {
+
+    private static final int MIN_NAME_SIZE = 2;
+    private static final int MAX_NAME_SIZE = 4;
+    private static final int MAX_INEDIBLE_MENU_COUNT = 2;
+
+    private final String name;
+    private final List<String> inedibleMenus;
+
+    public Coach(String name, List<String> inedibleMenus) {
+        validateName(name);
+        validateInedibleMenus(inedibleMenus);
+
+        this.name = name;
+        this.inedibleMenus = List.copyOf(inedibleMenus);
+    }
+
+    public static void validateName(String name) {
+        if (isOutOfRange(name)) {
+            String exceptionMessage = "이름은 %d글자 이상 %d글자 이하이어야 합니다".formatted(MIN_NAME_SIZE, MAX_NAME_SIZE);
+            throw new IllegalArgumentException(exceptionMessage);
+        }
+    }
+
+    private static boolean isOutOfRange(String name) {
+        return name.length() < MIN_NAME_SIZE || name.length() > MIN_NAME_SIZE;
+    }
+
+    private static void validateInedibleMenus(List<String> inedibleMenus) {
+        if (isOverThanMaxSize(inedibleMenus)) {
+            String exceptionMessage = "못 먹는 음식은 %d개 이하이어야 합니다".formatted(MAX_INEDIBLE_MENU_COUNT);
+            throw new IllegalArgumentException(exceptionMessage);
+        }
+    }
+
+    private static boolean isOverThanMaxSize(List<String> inedibleMenus) {
+        return inedibleMenus.size() > MAX_INEDIBLE_MENU_COUNT;
+    }
+}
