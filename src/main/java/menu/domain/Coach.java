@@ -43,7 +43,7 @@ public class Coach {
         return inedibleMenus.size() > MAX_INEDIBLE_MENU_COUNT;
     }
 
-    public void addRecommendMenuBy(Category category) {
+    void addRecommendMenuBy(Category category) {
         String newMenu;
         do {
             newMenu = getRandomMenu(category);
@@ -66,6 +66,10 @@ public class Coach {
 
     private boolean isAlreadyRecommend(String newMenu) {
         return recommendedMenus.contains(newMenu);
+    }
+
+    public void resetRecommendMenus() {
+        recommendedMenus.clear();
     }
 
     public String getName() {

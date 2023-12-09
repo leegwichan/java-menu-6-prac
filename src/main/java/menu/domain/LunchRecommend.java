@@ -1,11 +1,15 @@
 package menu.domain;
 
+import java.util.ArrayList;
 import java.util.List;
+import menu.dto.MultiRecommendResult;
 
 public class LunchRecommend {
 
     private static final int MIN_COACHES = 2;
     private static final int MAX_COACHES = 5;
+    private static final int COUNT_OF_RECOMMEND_MENU = 5;
+    private static final int MAX_COUNT_OF_OVERLAPPED_CATEGORY = 2;
 
     private final List<Coach> coaches;
 
@@ -32,5 +36,34 @@ public class LunchRecommend {
 
     private static boolean isOutOfRange(int count) {
         return count < MIN_COACHES || count > MAX_COACHES;
+    }
+
+    public MultiRecommendResult generateRecommendResult() {
+        coaches.forEach(Coach::resetRecommendMenus);
+
+        List<Category> categories = new ArrayList<>();
+        for (int index = 0; index <= COUNT_OF_RECOMMEND_MENU; index++) {
+            addValidateCategory(categories);
+            Category newCategory = categories.get(index);
+            coaches.forEach(coach -> coach.addRecommendMenuBy(newCategory));
+        }
+
+        return MultiRecommendResult.of(categories, coaches);
+    }
+
+    private void addValidateCategory(List<Category> categories) {
+        Category newCategory;
+        do {
+            newCategory = RandomCategoryGenerator.generate();
+        } while (isViolateRecommendRule(categories, newCategory));
+
+        categories.add(newCategory);
+    }
+
+    private boolean isViolateRecommendRule(List<Category> categories, Category newCategory) {
+        return categories.stream()
+                .filter(category -> category == newCategory)
+                .count() > MAX_COUNT_OF_OVERLAPPED_CATEGORY;
+
     }
 }
