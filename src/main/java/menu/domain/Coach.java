@@ -67,4 +67,12 @@ public class Coach {
     private boolean isAlreadyRecommend(String newMenu) {
         return recommendedMenus.contains(newMenu);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getRecommendedMenus() {
+        return List.copyOf(recommendedMenus);
+    }
 }
