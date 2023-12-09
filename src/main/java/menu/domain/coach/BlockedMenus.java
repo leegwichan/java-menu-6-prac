@@ -27,7 +27,7 @@ public class BlockedMenus {
     }
 
     private void validateDuplicate(List<String> menus) {
-        if (menus.size() != new HashSet(menus).size()) {
+        if (menus.size() != new HashSet<>(menus).size()) {
             throw new InputError(ErrorMessage.DUPLICATED);
         }
     }
