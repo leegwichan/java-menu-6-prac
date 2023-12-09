@@ -57,7 +57,7 @@ public class Coach {
     }
 
     private boolean isViolateRecommendCondition(String newMenu) {
-        return isInedible(newMenu) ||  isAlreadyRecommend(newMenu);
+        return isInedible(newMenu) || isAlreadyRecommend(newMenu);
     }
 
     private boolean isInedible(String newMenu) {
