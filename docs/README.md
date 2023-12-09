@@ -9,10 +9,10 @@
 - [ ] 서비스 종료 문구 출력
 
 ### 코치 정보 입력
-- [ ] 코치의 이름 입력
-- [ ] 입력 값 검증 및 예외 처리 (IllegalArgumentException)
-- [ ] 코치별 못 먹는 메뉴 입력
-- [ ] 입력 값 검증 및 예외 처리 (IllegalArgumentException)
+- [x] 코치의 이름 입력
+- [x] 입력 값 검증 및 예외 처리 (IllegalArgumentException)
+- [x] 코치별 못 먹는 메뉴 입력
+- [x] 입력 값 검증 및 예외 처리 (IllegalArgumentException)
 
 ### 메뉴 추천 로직
 - [x] 카테고리 무작위 선택
