@@ -1,5 +1,6 @@
 package menu.domain.coach;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Coach {
@@ -22,6 +23,14 @@ public class Coach {
 
     public boolean isAllowedMenu(String menu) {
         return !isDuplicatedMenu(menu) || blockedMenus.isIn(menu);
+    }
+
+    public String getName() {
+        return name.get();
+    }
+
+    public List<String> getRecommendedMenus() {
+        return Collections.unmodifiableList(recommendedMenus);
     }
 
     private boolean isDuplicatedMenu(String menu) {

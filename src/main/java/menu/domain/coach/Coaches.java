@@ -24,6 +24,21 @@ public class Coaches {
         return Collections.unmodifiableList(coaches);
     }
 
+    public String getRecommendedResultOfString() {
+        StringBuilder result = new StringBuilder();
+        coaches.forEach(coach -> {
+            result
+                    .append("[ ")
+                    .append(coach.getName())
+                    .append(" | ")
+                    .append(coach.getRecommendedMenus().stream().collect(Collectors.joining(" | ")))
+                    .append(" ]")
+                    .append("\n");
+        });
+
+        return result.toString();
+    }
+
     private void validateSize(List<String> names) {
         if (isOutOfSize(names)) {
             throw new InputError(ErrorMessage.COACH_SIZE);

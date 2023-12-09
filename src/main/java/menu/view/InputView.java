@@ -5,7 +5,7 @@ import java.util.List;
 
 public class InputView {
     private static final String INPUT_NAME = "코치의 이름을 입력해 주세요. (, 로 구분)";
-    private static final String INPUT_BLOCKED_MENU = "%s (이)가 못 먹는 메뉴를 입력해 주세요.";
+    private static final String INPUT_BLOCKED_MENU = "%s(이)가 못 먹는 메뉴를 입력해 주세요.";
     private static final String DELIMITER = ",";
 
     public static List<String> getCoachNames() {

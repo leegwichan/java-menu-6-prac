@@ -2,6 +2,7 @@ package menu.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import menu.NumberPicker;
 import menu.domain.coach.Coach;
@@ -32,6 +33,10 @@ public class Recommendation {
 
     public void addRecommendMenu() {
         coaches.getList().forEach(this::saveMenu);
+    }
+
+    public List<Category> getCategories() {
+        return Collections.unmodifiableList(categories);
     }
 
     private String selectMenuByLastCategory() {
