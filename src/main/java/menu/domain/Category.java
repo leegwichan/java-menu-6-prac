@@ -1,6 +1,6 @@
 package menu.domain;
 
-public enum Catogory {
+public enum Category {
     일식,
     한식,
     중식,

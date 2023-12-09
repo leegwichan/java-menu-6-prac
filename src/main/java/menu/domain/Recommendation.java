@@ -7,7 +7,7 @@ public class Recommendation {
     private static final int LIMIT_SAME_CATEGORY = 2;
 
     private final NumberPicker numberPicker;
-    private List<Catogory> categories;
+    private List<Category> categories;
 
     public Recommendation(NumberPicker numberPicker) {
         this.numberPicker = numberPicker;
@@ -15,21 +15,21 @@ public class Recommendation {
 
     public void addCategory() {
         while (true) {
-            Catogory selectedCatogory = selectCategory();
-            if (isLimitAllowed(selectedCatogory)) {
-                categories.add(selectedCatogory);
+            Category selectedCategory = selectCategory();
+            if (isLimitAllowed(selectedCategory)) {
+                categories.add(selectedCategory);
                 return;
             }
         }
     }
 
-    private Catogory selectCategory() {
+    private Category selectCategory() {
         return Menu.getCategories().get(numberPicker.pick() - 1);
     }
 
-    private boolean isLimitAllowed(Catogory selectedCatogory) {
+    private boolean isLimitAllowed(Category selectedCategory) {
         return categories.stream()
-                .filter(catogory -> catogory.equals(selectedCatogory))
+                .filter(category -> category.equals(selectedCategory))
                 .count() < LIMIT_SAME_CATEGORY;
     }
 

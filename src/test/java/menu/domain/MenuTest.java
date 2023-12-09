@@ -18,7 +18,7 @@ class MenuTest {
         int index = number - 1;
 
         // when
-        List<Catogory> categories = Menu.getCategories();
+        List<Category> categories = Menu.getCategories();
 
         // then
         assertThat(categories.get(index).toString()).isEqualTo(category);
