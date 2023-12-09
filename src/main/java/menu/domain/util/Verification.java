@@ -4,14 +4,17 @@ public class Verification {
     private final String regex = "^[ㄱ-ㅎ가-힣]*$";
     private Conversion conversion;
 
-    public void verificationAll(String coachNames) {
+    public Verification() {
         conversion = new Conversion();
+    }
+
+    public void verificationAll(String coachNames) {
         checkInputFormat(coachNames);
         checkNameLength(coachNames);
         checkCoachCount(coachNames);
     }
 
-    private void checkInputFormat(String coachNames) {
+    public void checkInputFormat(String coachNames) {
         String[] names = conversion.convertToArray(coachNames);
 
         for (String name : names) {
@@ -31,7 +34,7 @@ public class Verification {
         }
     }
 
-    public void checkCoachCount(String coachNames) {
+    private void checkCoachCount(String coachNames) {
         String[] names = conversion.convertToArray(coachNames);
 
         if(!(names.length >= 2 && names.length <= 5)) {
