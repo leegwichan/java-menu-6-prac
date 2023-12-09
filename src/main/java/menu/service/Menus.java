@@ -1,6 +1,5 @@
 package menu.service;
 
-import java.util.Collections;
 import java.util.List;
 import menu.model.MenuData;
 
@@ -16,7 +15,11 @@ public class Menus {
         menuList.forEach(MenuData::isValidMenu);
     }
 
-    public List<String> getMenuList() {
-        return Collections.unmodifiableList(menuList);
+    public boolean hasMenu(String menu) {
+        return menuList.contains(menu);
+    }
+
+    public int size() {
+        return menuList.size();
     }
 }
