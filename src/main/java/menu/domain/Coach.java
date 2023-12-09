@@ -17,4 +17,12 @@ public class Coach {
         verification.verificationAll(coachNames);
         this.coachNames = conversion.convertToList(coachNames);
     }
+
+    public int size() {
+        return coachNames.size();
+    }
+
+    public List<String> getCoachNames() {
+        return coachNames;
+    }
 }
