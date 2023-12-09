@@ -3,6 +3,7 @@ package menu.domain;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import menu.exception.ErrorMessage;
 
 public enum Menu {
     JAPANESE("일식", List.of("규동", "우동", "미소시루", "스시", "가츠동", "오니기리", "하이라이스", "라멘", "오코노미야끼")),
@@ -23,5 +24,13 @@ public enum Menu {
         return Arrays.stream(values())
                 .map(menu -> menu.category)
                 .collect(Collectors.toList());
+    }
+
+    public static List<String> getFoodsByCategory(String category) {
+        return Arrays.stream(values())
+                .filter(value -> value.category.equals(category))
+                .map(menu -> menu.names)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.NOT_FOUND_CATEGORY));
     }
 }
