@@ -1,8 +1,6 @@
 package menu.model;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
-import menu.exception.InvalidInputException;
 import menu.exception.MenuRecommendationException;
 
 public enum Category {
@@ -20,7 +18,7 @@ public enum Category {
         this.krName = krName;
     }
 
-    public static Category fromIndex(int index) {
+    public static Category get(int index) {
         return Stream.of(Category.values())
                 .filter(category -> category.index == index)
                 .findFirst()
