@@ -20,6 +20,10 @@ public class BlockedMenus {
         return new BlockedMenus(menus);
     }
 
+    public boolean isIn(String menu) {
+        return menus.contains(menu);
+    }
+
     private void validateSize(List<String> menus) {
         if (menus.size() > MAX_VALUE) {
             throw new InputError(ErrorMessage.MENU_SIZE);
