@@ -42,7 +42,7 @@ public class LunchRecommend {
         coaches.forEach(Coach::resetRecommendMenus);
 
         List<Category> categories = new ArrayList<>();
-        for (int index = 0; index <= COUNT_OF_RECOMMEND_MENU; index++) {
+        for (int index = 0; index < COUNT_OF_RECOMMEND_MENU; index++) {
             addValidateCategory(categories);
             Category newCategory = categories.get(index);
             coaches.forEach(coach -> coach.addRecommendMenuBy(newCategory));
