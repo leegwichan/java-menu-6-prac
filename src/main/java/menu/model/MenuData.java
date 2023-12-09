@@ -9,6 +9,8 @@ import menu.exception.InvalidInputException;
 public class MenuData {
     private static Map<Category, List<String>> menuByCategory = new HashMap<>();
 
+    private MenuData(){}
+
     static {
         initializeMenuData();
     }
