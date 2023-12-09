@@ -17,9 +17,7 @@ public class MenuRecommendController {
         outputView.printStartTitle();
 
         List<String> names = readRepeatedlyUntilNoException(this::readCoachNames);
-        List<Coach> coaches = names.stream()
-                .map(name -> readRepeatedlyUntilNoException(() -> readInedibleMenu(name)))
-                .collect(Collectors.toList());
+        List<Coach> coaches = readCoaches(names);
 
         LunchRecommend recommender = new LunchRecommend(coaches);
         outputView.printRecommendResult(recommender.generateRecommendResult());
@@ -31,7 +29,13 @@ public class MenuRecommendController {
         return names;
     }
 
-    private Coach readInedibleMenu(String name) {
+    private List<Coach> readCoaches(List<String> coachNames) {
+        return coachNames.stream()
+                .map(name -> readRepeatedlyUntilNoException(() -> readCoach(name)))
+                .collect(Collectors.toList());
+    }
+
+    private Coach readCoach(String name) {
         List<String> inedibleMenu = inputView.inputInedibleMenu(name);
         return new Coach(name, inedibleMenu);
     }
