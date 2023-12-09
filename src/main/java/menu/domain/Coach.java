@@ -29,7 +29,7 @@ public class Coach {
     }
 
     private static boolean isOutOfRange(String name) {
-        return name.length() < MIN_NAME_SIZE || name.length() > MIN_NAME_SIZE;
+        return name.length() < MIN_NAME_SIZE || name.length() > MAX_NAME_SIZE;
     }
 
     private static void validateInedibleMenus(List<String> inedibleMenus) {
