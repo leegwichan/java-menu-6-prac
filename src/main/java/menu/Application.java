@@ -1,7 +1,12 @@
 package menu;
 
+import menu.controller.MenuRecommendController;
+import menu.util.RandomGenerator;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        new MenuRecommendController(
+                new RandomGenerator()
+        ).run();
     }
 }
