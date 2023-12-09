@@ -5,8 +5,8 @@
 ## 기능 목록
 
 ### 서비스 시작 및 종료
-- [ ] 서비스 시작 문구 출력
-- [ ] 서비스 종료 문구 출력
+- [x] 서비스 시작 문구 출력
+- [x] 서비스 종료 문구 출력
 
 ### 코치 정보 입력
 - [x] 코치의 이름 입력
@@ -22,13 +22,15 @@
 - [x] 못 먹는 메뉴 고려
 
 ### 결과 출력
-- [ ] 메뉴 추천 결과 테이블 형태로 출력
+- [x] 메뉴 추천 결과 테이블 형태로 출력
 
 ### 예외 처리
-- [ ] IllegalArgumentException 처리
-- [ ] IllegalStateException 처리
-- [ ] 사용자 정의 예외 처리 (MenuRecommendationException, ValidationException)
-- [ ] 에러 메시지 출력 시 "[ERROR]"로 시작
+- [x] IllegalArgumentException 처리
+- [x] IllegalStateException 처리
+- [x] 사용자 정의 예외 처리 (MenuRecommendationException, ValidationException)
+- [x] 에러 메시지 출력 시 "[ERROR]"로 시작
+
+- [ ] ApplicationTest 통과하기
 
 ## 클래스 설계
 

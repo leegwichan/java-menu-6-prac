@@ -2,7 +2,6 @@ package menu.service;
 
 import static menu.model.MenuData.isMenuInCategory;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,12 +49,13 @@ public class MenuSelector {
     private String selectMenuForCategory(Coach coach, List<String> selectedMenus, Category category) {
         List<String> menus = MenuData.getMenusByCategory(category);
         System.out.println(category.getKrName());
-        System.out.println(menus);
         String menuString;
         do {
-            menuString = Randoms.shuffle(menus).get(0);
+            //menuString = Randoms.shuffle(menus).get(0);
+            menuString = generator.getRandomElementOf(menus);
+            System.out.println(menus);
+            System.out.println(menuString);
         } while (isInValidMenuForCoach(coach, selectedMenus, menuString));
-        System.out.println(menuString);
         return menuString;
     }
 
