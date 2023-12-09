@@ -18,10 +18,6 @@ public class Coach {
         this.coachNames = conversion.convertToList(coachNames);
     }
 
-    public int size() {
-        return coachNames.size();
-    }
-
     public List<String> getCoachNames() {
         return coachNames;
     }

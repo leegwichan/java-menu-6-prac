@@ -1,5 +1,6 @@
 package menu.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,5 +17,13 @@ public class CoachInfo {
         coachInfo.put(coachName, exceptMenu);
 
         return coachInfo;
+    }
+
+    public List<String> getCoachNames() {
+        return new ArrayList<>(coachInfo.keySet());
+    }
+
+    public boolean isForbiddenMenu(String coachName, String menu) {
+        return coachInfo.get(coachName).contains(menu);
     }
 }
