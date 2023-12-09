@@ -29,12 +29,16 @@ public class OutputView {
         printBlankLine();
         println(RESULT_MESSAGE);
 
-        printByTableRowFormat(PREFIX_DAY_OF_WEEK, DAY_OF_WEEK);
-        printByTableRowFormat(PREFIX_CATEGORY, results.getCategories());
-        results.getResults().forEach(this::printByTableRowFormat);
+        printResultTable(results);
 
         printBlankLine();
         println(FINISH_MESSAGE);
+    }
+
+    private void printResultTable(MultiRecommendResult results) {
+        printByTableRowFormat(PREFIX_DAY_OF_WEEK, DAY_OF_WEEK);
+        printByTableRowFormat(PREFIX_CATEGORY, results.getCategories());
+        results.getResults().forEach(this::printByTableRowFormat);
     }
 
     private void printByTableRowFormat(SingleRecommendResult result) {
