@@ -18,10 +18,10 @@ class MenuTest {
         int index = number - 1;
 
         // when
-        List<String> categories = Menu.getCategories();
+        List<Catogory> categories = Menu.getCategories();
 
         // then
-        assertThat(categories.get(index)).isEqualTo(category);
+        assertThat(categories.get(index).toString()).isEqualTo(category);
     }
 
     @DisplayName("특정 카테고리의 음식 리스트를 가져와야 한다")
