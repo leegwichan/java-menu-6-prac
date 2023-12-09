@@ -1,5 +1,6 @@
 package menu.domain.coach;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Coaches {
         validateDuplicate(names);
         this.coaches = generateCoachesByNames(names);
     }
-    
+
     public List<Coach> getList() {
         return Collections.unmodifiableList(coaches);
     }
@@ -41,7 +42,7 @@ public class Coaches {
 
     private static List<Coach> generateCoachesByNames(List<String> names) {
         return names.stream()
-                .map(Coach::new)
+                .map(name -> new Coach(name, new ArrayList<>()))
                 .collect(Collectors.toList());
     }
 }

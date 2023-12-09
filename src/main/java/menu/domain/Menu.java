@@ -26,7 +26,7 @@ public enum Menu {
                 .collect(Collectors.toList());
     }
 
-    public static List<String> getFoodsByCategory(String category) {
+    public static List<String> getFoodsByCategory(Category category) {
         return Arrays.stream(values())
                 .filter(value -> value.category.equals(category))
                 .map(menu -> menu.names)
