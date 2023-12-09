@@ -1,6 +1,7 @@
 package menu.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ public class MenuSelector {
      * @return 선택된 메뉴 맵 반환
      */
     public Map<Coach, Menus> getSelectedMenus(Coaches coaches, List<Category> categories) {
-        Map<Coach, Menus> selectedMenus = new LinkedHashMap<>();
+        Map<Coach, Menus> selectedMenus = new HashMap<>();
         for(Coach coach: coaches.getCoachList()) {
             selectedMenus.put(coach, selectMenuByCoach(coach, categories));
         }

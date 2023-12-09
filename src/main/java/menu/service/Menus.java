@@ -1,5 +1,6 @@
 package menu.service;
 
+import java.util.Collections;
 import java.util.List;
 import menu.model.MenuData;
 
@@ -21,5 +22,9 @@ public class Menus {
 
     public int size() {
         return menuList.size();
+    }
+
+    public List<String> getMenuStringList() {
+        return Collections.unmodifiableList(menuList);
     }
 }
