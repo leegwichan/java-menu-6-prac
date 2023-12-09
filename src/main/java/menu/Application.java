@@ -1,7 +1,10 @@
 package menu;
 
+import menu.controller.ServiceManageController;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        ServiceManageController serviceManageController = new ServiceManageController();
+        serviceManageController.startRecommend();
     }
 }
