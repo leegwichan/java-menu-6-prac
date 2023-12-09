@@ -26,6 +26,7 @@ public class OutputView {
     }
 
     public void printRecommendResult(MultiRecommendResult results) {
+        printBlankLine();
         println(RESULT_MESSAGE);
 
         printByTableRowFormat(PREFIX_DAY_OF_WEEK, DAY_OF_WEEK);
